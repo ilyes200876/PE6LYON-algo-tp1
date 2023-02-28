@@ -71,4 +71,27 @@ DÉBUT
 
     Renvoyer FAUX
 FIN
+
+FONCTION estAvant(var annee1, var mois1, var jour1, var annee2, var mois2, var jour2) : entier
+ DÉBUT   
+    SI annee = annee2
+       ET mois1 = mois2
+       ET jour1 = jour2 ALORS
+       renvoyer 0
+    FINSI
+    SI annee1 < annee2 ALORS
+       renvoyer -1
+    FINSI
+    SI année1 = annee2
+       ET mois1 < mois2
+       renvoyer -1
+    FINSI
+    SI année1 = annee2
+       ET mois1 = mois2
+       ET jour1 < jour2 ALORS
+       renvoyer -1
+    FINSI
+    Renvoyer 1
+FIN
+
 ```
