@@ -34,6 +34,7 @@ DÉBUT
         SI (estBissextile(annee) ET jour <= 29)
             OU jour <= 28 ALORS
             Renvoyer VRAI
+            SINON retourner FAUX
         FINSI
     FINSI
     SI jour <= 31 ALORS
