@@ -115,9 +115,9 @@ FONCTION afficherDuréeSheure(h, heure)
     FINSI
     renvoyer (minute <- min + "minutes")
   FIN
-
+ 
   FONCTION afficherDuréeseconde(s, seconde)
-   DEBUT 
+  DEBUT 
     Si s = 1 ALORS
        renvoyer ( seconde <- s + "seconde")
        SINON SI s = 0 ALORS
