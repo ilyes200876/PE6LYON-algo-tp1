@@ -98,34 +98,34 @@ FIN
 FONCTION afficherDuréeSheure(h, heure)
   DÉBUT
     SI h = 1 ALORS
-      revoyer (heure <- s + "heure")
+      revoyer (heure <- s + " heure")
       SINON SI h = 0 ALORS
         renoyer (heure <- "") 
       FINSI   
     FINSI
-    renvoyer (heure <- h + heures")
+    renvoyer (heure <- h + " heures")
   FIN
 
   FONCTION afficherDuréeminute(min, minute)
    DEBUT 
     Si min = 1 ALORS
-       renvoyer ( minute <- min + "minute")
+       renvoyer ( minute <- min + " minute")
        SINON SI min = 0 ALORS
            renvoyer ( minute <- "") 
        FINSI 
     FINSI
-    renvoyer (minute <- min + "minutes")
+    renvoyer (minute <- min + " minutes")
   FIN
  
   FONCTION afficherDuréeseconde(s, seconde)
   DEBUT 
     Si s = 1 ALORS
-       renvoyer ( seconde <- s + "seconde")
+       renvoyer ( seconde <- s + " seconde")
        SINON SI s = 0 ALORS
            renvoyer ( seconde <- "") 
        FINSI 
     FINSI
-    renvoyer (seconde <- s + "secondes")
+    renvoyer (seconde <- s + " secondes")
   FIN
 
 PROCÉDURE afficherDurée(var secondes)
@@ -137,7 +137,7 @@ PROCÉDURE afficherDurée(var secondes)
    DECLARER minute
    DECLARER seconde
    h = secondes / 3600 
-   min = secondes / 60
+   min = (secondes / 60) - h * 60
    s = secondes % 3600
    
    # Pour les heures
@@ -152,7 +152,7 @@ PROCÉDURE afficherDurée(var secondes)
 
    afficherDuréeseconde(s, seconde)
    
-   afficher (heure + minute)
+   afficher (heure " " + minute " " + seconde)
 
  FIN
 ```
