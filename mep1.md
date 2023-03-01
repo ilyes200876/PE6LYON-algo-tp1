@@ -34,6 +34,7 @@ DÉBUT
         SI (estBissextile(annee) ET jour <= 29)
             OU jour <= 28 ALORS
             Renvoyer VRAI
+            SINON retourner FAUX
         FINSI
     FINSI
     SI jour <= 31 ALORS
@@ -94,18 +95,19 @@ FONCTION estAvant(var annee1, var mois1, var jour1, var annee2, var mois2, var j
     Renvoyer 1
 FIN
 
-FONCTION afficherDuréeSheure(h, heure)
+FONCTION afficherDuréeHeure(h, heure)
   DÉBUT
     SI h = 1 ALORS
-      revoyer (heure <- s + " heure")
+      revoyer (heure <- h + " heure")
       SINON SI h = 0 ALORS
         renoyer (heure <- "") 
       FINSI   
     FINSI
     renvoyer (heure <- h + " heures")
+
   FIN
 
-  FONCTION afficherDuréeminute(min, minute)
+  FONCTION afficherDuréeMinute(min, minute)
    DEBUT 
     Si min = 1 ALORS
        renvoyer ( minute <- min + " minute")
@@ -116,7 +118,7 @@ FONCTION afficherDuréeSheure(h, heure)
     renvoyer (minute <- min + " minutes")
   FIN
  
-  FONCTION afficherDuréeseconde(s, seconde)
+  FONCTION afficherDuréeSeconde(s, seconde)
   DEBUT 
     Si s = 1 ALORS
        renvoyer ( seconde <- s + " seconde")
@@ -135,21 +137,21 @@ PROCÉDURE afficherDurée(var secondes)
    DECLARER heure
    DECLARER minute
    DECLARER seconde
-   h = secondes / 3600 
-   min = (secondes / 60) - h * 60
-   s = secondes % 3600
+   h = valeurEntières(secondes / 3600)
+   min = valeurEntières((secondes / 60) - (h * 60))
+   s = valeurEntières(secondes % 3600)
    
    # Pour les heures
 
-   afficherDuréeSheure(h, heure)
+   afficherDuréeHeure(h, heure)
 
    # Pour les minutes
   
-   afficherDuréeminute(min, minute)
+   afficherDuréeMinute(min, minute)
     
    # Pour les secondes
 
-   afficherDuréeseconde(s, seconde)
+   afficherDuréeSeconde(s, seconde)
    
    afficher (heure " " + minute " " + seconde)
 
