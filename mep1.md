@@ -94,4 +94,64 @@ FONCTION estAvant(var annee1, var mois1, var jour1, var annee2, var mois2, var j
     Renvoyer 1
 FIN
 
+FONCTION afficherDuréeSheure(h, heure)
+  DÉBUT
+    SI h = 1 ALORS
+      revoyer (heure <- s + " heure")
+      SINON SI h = 0 ALORS
+        renoyer (heure <- "") 
+      FINSI   
+    FINSI
+    renvoyer (heure <- h + " heures")
+  FIN
+
+  FONCTION afficherDuréeminute(min, minute)
+   DEBUT 
+    Si min = 1 ALORS
+       renvoyer ( minute <- min + " minute")
+       SINON SI min = 0 ALORS
+           renvoyer ( minute <- "") 
+       FINSI 
+    FINSI
+    renvoyer (minute <- min + " minutes")
+  FIN
+ 
+  FONCTION afficherDuréeseconde(s, seconde)
+  DEBUT 
+    Si s = 1 ALORS
+       renvoyer ( seconde <- s + " seconde")
+       SINON SI s = 0 ALORS
+           renvoyer ( seconde <- "") 
+       FINSI 
+    FINSI
+    renvoyer (seconde <- s + " secondes")
+  FIN
+
+PROCÉDURE afficherDurée(var secondes)
+ DÉBUT
+   var h
+   var min
+   var s
+   DECLARER heure
+   DECLARER minute
+   DECLARER seconde
+   h = secondes / 3600 
+   min = (secondes / 60) - h * 60
+   s = secondes % 3600
+   
+   # Pour les heures
+
+   afficherDuréeSheure(h, heure)
+
+   # Pour les minutes
+  
+   afficherDuréeminute(min, minute)
+    
+   # Pour les secondes
+
+   afficherDuréeseconde(s, seconde)
+   
+   afficher (heure " " + minute " " + seconde)
+
+ FIN
 ```
